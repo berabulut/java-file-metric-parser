@@ -1,0 +1,315 @@
+---
+root(Type=CompilationUnit): 
+    packageDeclaration(Type=PackageDeclaration): 
+        name(Type=Name): 
+            identifier: "company"
+            qualifier(Type=Name): 
+                identifier: "com"
+    types: 
+        - type(Type=ClassOrInterfaceDeclaration): 
+            isInterface: "false"
+            name(Type=SimpleName): 
+                identifier: "OperatorTest"
+            members: 
+                - member(Type=MethodDeclaration): 
+                    body(Type=BlockStmt): 
+                        statements: 
+                            - statement(Type=ExpressionStmt): 
+                                expression(Type=AssignExpr): 
+                                    operator: "ASSIGN"
+                                    target(Type=NameExpr): 
+                                        name(Type=SimpleName): 
+                                            identifier: "x"
+                                    value(Type=BinaryExpr): 
+                                        operator: "PLUS"
+                                        left(Type=NameExpr): 
+                                            name(Type=SimpleName): 
+                                                identifier: "x"
+                                        right(Type=IntegerLiteralExpr): 
+                                            value: "1"
+                            - statement(Type=ExpressionStmt): 
+                                expression(Type=UnaryExpr): 
+                                    operator: "POSTFIX_INCREMENT"
+                                    expression(Type=NameExpr): 
+                                        name(Type=SimpleName): 
+                                            identifier: "x"
+                            - statement(Type=ExpressionStmt): 
+                                expression(Type=AssignExpr): 
+                                    operator: "ASSIGN"
+                                    target(Type=NameExpr): 
+                                        name(Type=SimpleName): 
+                                            identifier: "x"
+                                    value(Type=BinaryExpr): 
+                                        operator: "MINUS"
+                                        left(Type=NameExpr): 
+                                            name(Type=SimpleName): 
+                                                identifier: "x"
+                                        right(Type=IntegerLiteralExpr): 
+                                            value: "1"
+                            - statement(Type=ExpressionStmt): 
+                                expression(Type=UnaryExpr): 
+                                    operator: "POSTFIX_DECREMENT"
+                                    expression(Type=NameExpr): 
+                                        name(Type=SimpleName): 
+                                            identifier: "x"
+                            - statement(Type=ExpressionStmt): 
+                                expression(Type=AssignExpr): 
+                                    operator: "ASSIGN"
+                                    target(Type=NameExpr): 
+                                        name(Type=SimpleName): 
+                                            identifier: "x"
+                                    value(Type=BinaryExpr): 
+                                        operator: "MULTIPLY"
+                                        left(Type=NameExpr): 
+                                            name(Type=SimpleName): 
+                                                identifier: "x"
+                                        right(Type=IntegerLiteralExpr): 
+                                            value: "1"
+                            - statement(Type=ExpressionStmt): 
+                                expression(Type=AssignExpr): 
+                                    operator: "ASSIGN"
+                                    target(Type=NameExpr): 
+                                        name(Type=SimpleName): 
+                                            identifier: "x"
+                                    value(Type=BinaryExpr): 
+                                        operator: "DIVIDE"
+                                        left(Type=NameExpr): 
+                                            name(Type=SimpleName): 
+                                                identifier: "x"
+                                        right(Type=IntegerLiteralExpr): 
+                                            value: "1"
+                            - statement(Type=ExpressionStmt): 
+                                expression(Type=AssignExpr): 
+                                    operator: "ASSIGN"
+                                    target(Type=NameExpr): 
+                                        name(Type=SimpleName): 
+                                            identifier: "x"
+                                    value(Type=BinaryExpr): 
+                                        operator: "REMAINDER"
+                                        left(Type=NameExpr): 
+                                            name(Type=SimpleName): 
+                                                identifier: "x"
+                                        right(Type=IntegerLiteralExpr): 
+                                            value: "1"
+                            - statement(Type=ExpressionStmt): 
+                                expression(Type=AssignExpr): 
+                                    operator: "ASSIGN"
+                                    target(Type=NameExpr): 
+                                        name(Type=SimpleName): 
+                                            identifier: "x"
+                                    value(Type=BinaryExpr): 
+                                        operator: "BINARY_AND"
+                                        left(Type=NameExpr): 
+                                            name(Type=SimpleName): 
+                                                identifier: "x"
+                                        right(Type=IntegerLiteralExpr): 
+                                            value: "1"
+                            - statement(Type=ExpressionStmt): 
+                                expression(Type=AssignExpr): 
+                                    operator: "ASSIGN"
+                                    target(Type=NameExpr): 
+                                        name(Type=SimpleName): 
+                                            identifier: "x"
+                                    value(Type=BinaryExpr): 
+                                        operator: "BINARY_OR"
+                                        left(Type=NameExpr): 
+                                            name(Type=SimpleName): 
+                                                identifier: "x"
+                                        right(Type=IntegerLiteralExpr): 
+                                            value: "1"
+                            - statement(Type=ExpressionStmt): 
+                                expression(Type=AssignExpr): 
+                                    operator: "ASSIGN"
+                                    target(Type=NameExpr): 
+                                        name(Type=SimpleName): 
+                                            identifier: "x"
+                                    value(Type=BinaryExpr): 
+                                        operator: "XOR"
+                                        left(Type=NameExpr): 
+                                            name(Type=SimpleName): 
+                                                identifier: "x"
+                                        right(Type=IntegerLiteralExpr): 
+                                            value: "1"
+                            - statement(Type=ExpressionStmt): 
+                                expression(Type=AssignExpr): 
+                                    operator: "ASSIGN"
+                                    target(Type=NameExpr): 
+                                        name(Type=SimpleName): 
+                                            identifier: "x"
+                                    value(Type=IntegerLiteralExpr): 
+                                        value: "1"
+                            - statement(Type=ExpressionStmt): 
+                                expression(Type=AssignExpr): 
+                                    operator: "PLUS"
+                                    target(Type=NameExpr): 
+                                        name(Type=SimpleName): 
+                                            identifier: "x"
+                                    value(Type=IntegerLiteralExpr): 
+                                        value: "1"
+                            - statement(Type=ExpressionStmt): 
+                                expression(Type=AssignExpr): 
+                                    operator: "MINUS"
+                                    target(Type=NameExpr): 
+                                        name(Type=SimpleName): 
+                                            identifier: "x"
+                                    value(Type=IntegerLiteralExpr): 
+                                        value: "1"
+                            - statement(Type=ExpressionStmt): 
+                                expression(Type=AssignExpr): 
+                                    operator: "DIVIDE"
+                                    target(Type=NameExpr): 
+                                        name(Type=SimpleName): 
+                                            identifier: "x"
+                                    value(Type=IntegerLiteralExpr): 
+                                        value: "1"
+                            - statement(Type=ExpressionStmt): 
+                                expression(Type=AssignExpr): 
+                                    operator: "MULTIPLY"
+                                    target(Type=NameExpr): 
+                                        name(Type=SimpleName): 
+                                            identifier: "x"
+                                    value(Type=IntegerLiteralExpr): 
+                                        value: "1"
+                            - statement(Type=ExpressionStmt): 
+                                expression(Type=AssignExpr): 
+                                    operator: "REMAINDER"
+                                    target(Type=NameExpr): 
+                                        name(Type=SimpleName): 
+                                            identifier: "x"
+                                    value(Type=IntegerLiteralExpr): 
+                                        value: "1"
+                            - statement(Type=ExpressionStmt): 
+                                expression(Type=AssignExpr): 
+                                    operator: "BINARY_AND"
+                                    target(Type=NameExpr): 
+                                        name(Type=SimpleName): 
+                                            identifier: "x"
+                                    value(Type=IntegerLiteralExpr): 
+                                        value: "1"
+                            - statement(Type=ExpressionStmt): 
+                                expression(Type=AssignExpr): 
+                                    operator: "BINARY_OR"
+                                    target(Type=NameExpr): 
+                                        name(Type=SimpleName): 
+                                            identifier: "x"
+                                    value(Type=IntegerLiteralExpr): 
+                                        value: "1"
+                            - statement(Type=ExpressionStmt): 
+                                expression(Type=AssignExpr): 
+                                    operator: "XOR"
+                                    target(Type=NameExpr): 
+                                        name(Type=SimpleName): 
+                                            identifier: "x"
+                                    value(Type=IntegerLiteralExpr): 
+                                        value: "1"
+                            - statement(Type=IfStmt): 
+                                condition(Type=UnaryExpr): 
+                                    operator: "LOGICAL_COMPLEMENT"
+                                    expression(Type=BooleanLiteralExpr): 
+                                        value: "true"
+                                thenStmt(Type=ReturnStmt): 
+                                    expression(Type=NameExpr): 
+                                        name(Type=SimpleName): 
+                                            identifier: "x"
+                            - statement(Type=IfStmt): 
+                                condition(Type=BinaryExpr): 
+                                    operator: "GREATER"
+                                    left(Type=NameExpr): 
+                                        name(Type=SimpleName): 
+                                            identifier: "x"
+                                    right(Type=IntegerLiteralExpr): 
+                                        value: "1"
+                                thenStmt(Type=ReturnStmt): 
+                                    expression(Type=NameExpr): 
+                                        name(Type=SimpleName): 
+                                            identifier: "x"
+                            - statement(Type=IfStmt): 
+                                condition(Type=BinaryExpr): 
+                                    operator: "GREATER_EQUALS"
+                                    left(Type=NameExpr): 
+                                        name(Type=SimpleName): 
+                                            identifier: "x"
+                                    right(Type=IntegerLiteralExpr): 
+                                        value: "1"
+                                thenStmt(Type=ReturnStmt): 
+                                    expression(Type=NameExpr): 
+                                        name(Type=SimpleName): 
+                                            identifier: "x"
+                            - statement(Type=IfStmt): 
+                                condition(Type=BinaryExpr): 
+                                    operator: "AND"
+                                    left(Type=BooleanLiteralExpr): 
+                                        value: "true"
+                                    right(Type=BooleanLiteralExpr): 
+                                        value: "false"
+                                thenStmt(Type=ReturnStmt): 
+                                    expression(Type=NameExpr): 
+                                        name(Type=SimpleName): 
+                                            identifier: "x"
+                            - statement(Type=IfStmt): 
+                                condition(Type=BinaryExpr): 
+                                    operator: "OR"
+                                    left(Type=BooleanLiteralExpr): 
+                                        value: "true"
+                                    right(Type=BooleanLiteralExpr): 
+                                        value: "false"
+                                thenStmt(Type=ReturnStmt): 
+                                    expression(Type=NameExpr): 
+                                        name(Type=SimpleName): 
+                                            identifier: "x"
+                            - statement(Type=IfStmt): 
+                                condition(Type=BinaryExpr): 
+                                    operator: "EQUALS"
+                                    left(Type=BooleanLiteralExpr): 
+                                        value: "true"
+                                    right(Type=BooleanLiteralExpr): 
+                                        value: "false"
+                                thenStmt(Type=ReturnStmt): 
+                                    expression(Type=NameExpr): 
+                                        name(Type=SimpleName): 
+                                            identifier: "x"
+                            - statement(Type=IfStmt): 
+                                condition(Type=BinaryExpr): 
+                                    operator: "NOT_EQUALS"
+                                    left(Type=BooleanLiteralExpr): 
+                                        value: "true"
+                                    right(Type=BooleanLiteralExpr): 
+                                        value: "false"
+                                thenStmt(Type=ReturnStmt): 
+                                    expression(Type=NameExpr): 
+                                        name(Type=SimpleName): 
+                                            identifier: "x"
+                            - statement(Type=ExpressionStmt): 
+                                expression(Type=VariableDeclarationExpr): 
+                                    variables: 
+                                        - variable(Type=VariableDeclarator): 
+                                            initializer(Type=StringLiteralExpr): 
+                                                value: ""
+                                            name(Type=SimpleName): 
+                                                identifier: "str"
+                                            type(Type=ClassOrInterfaceType): 
+                                                name(Type=SimpleName): 
+                                                    identifier: "String"
+                            - statement(Type=ReturnStmt): 
+                                expression(Type=NameExpr): 
+                                    name(Type=SimpleName): 
+                                        identifier: "x"
+                    type(Type=PrimitiveType): 
+                        type: "INT"
+                    name(Type=SimpleName): 
+                        identifier: "fbuzz"
+                    modifiers: 
+                        - modifier(Type=Modifier): 
+                            keyword: "PUBLIC"
+                    parameters: 
+                        - parameter(Type=Parameter): 
+                            isVarArgs: "false"
+                            name(Type=SimpleName): 
+                                identifier: "x"
+                            type(Type=PrimitiveType): 
+                                type: "INT"
+            modifiers: 
+                - modifier(Type=Modifier): 
+                    keyword: "PUBLIC"
+...
+3
