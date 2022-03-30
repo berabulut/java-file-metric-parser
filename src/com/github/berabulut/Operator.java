@@ -1,16 +1,9 @@
 package com.github.berabulut;
 
-public class Operator {
+import com.github.javaparser.ast.Node;
+
+public abstract class Operator {
     private int count;
-    private String name;
-
-    Operator(String name) {
-        this.name = name;
-    }
-
-    public String getName() {
-        return name;
-    }
 
     public int getCount(){
         return count;
@@ -19,4 +12,6 @@ public class Operator {
     public void incrementCount(){
         this.count += 1;
     }
+
+    public abstract boolean SameType(Node node);
 }
