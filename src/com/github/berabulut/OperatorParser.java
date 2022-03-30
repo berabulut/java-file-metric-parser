@@ -19,6 +19,9 @@ public class OperatorParser {
 
     static Operator relational;
     static Operator logical;
+    static Operator arithmetic;
+
+    private static int methodCount;
 
     CompilationUnit cu;
     VoidVisitor<Void> nodeVisitor = new NodeVisitor();
@@ -31,6 +34,15 @@ public class OperatorParser {
 
         this.relational = new RelationalOperator();
         this.logical = new LogicalOperator();
+        this.arithmetic = new ArithmeticOperator();
+    }
+
+    static private void incrementMethodCount() {
+        methodCount += 1;
+    }
+
+    public int getMethodCount() {
+        return methodCount;
     }
 
     public void Parse() {
@@ -39,6 +51,8 @@ public class OperatorParser {
         System.out.println("Binary: " + binary.getCount());
         System.out.println("Relational: " + relational.getCount());
         System.out.println("Logical: " + logical.getCount());
+        System.out.println("Arithmetic: " + arithmetic.getCount());
+        System.out.println("Method Count: " + methodCount);
     }
 
     private static class NodeVisitor extends VoidVisitorAdapter<Void> {
@@ -46,19 +60,24 @@ public class OperatorParser {
         @Override
         public void visit(MethodDeclaration md, Void arg) {
             super.visit(md, arg);
+
+            incrementMethodCount();
+
             md.walk(node -> {
                 if (unary.SameType(node)) {
                     unary.incrementCount();
-                }  else if (binary.SameType(node)) {
+                } else if (binary.SameType(node)) {
                     binary.incrementCount();
                     BinaryExpr be = (BinaryExpr) node;
                     be.getOperator();
                 }
 
-                if(relational.SameType(node)) {
+                if (relational.SameType(node)) {
                     relational.incrementCount();
                 } else if(logical.SameType(node)){
                     logical.incrementCount();
+                } else if(arithmetic.SameType(node)) {
+                    arithmetic.incrementCount();
                 }
             });
         }

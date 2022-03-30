@@ -2,7 +2,6 @@ package com.github.berabulut;
 
 import com.github.javaparser.ast.Node;
 import com.github.javaparser.ast.expr.BinaryExpr;
-import com.github.javaparser.ast.expr.UnaryExpr;
 
 import java.util.ArrayList;
 import java.util.List;
