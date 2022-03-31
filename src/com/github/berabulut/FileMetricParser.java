@@ -3,34 +3,34 @@ package com.github.berabulut;
 import com.github.javaparser.StaticJavaParser;
 import com.github.javaparser.ast.CompilationUnit;
 import com.github.javaparser.ast.body.MethodDeclaration;
-import com.github.javaparser.ast.expr.BinaryExpr;
 import com.github.javaparser.ast.visitor.VoidVisitor;
 import com.github.javaparser.ast.visitor.VoidVisitorAdapter;
-import com.github.javaparser.utils.Log;
 
 import java.io.File;
 import java.io.FileNotFoundException;
 
 
-public class OperatorParser {
+public class FileMetricParser {
 
-    static Operator binary;
-    static Operator unary;
+    private static Operator binary;
+    private static Operator unary;
+    private static Operator assignment;
 
-    static Operator relational;
-    static Operator logical;
-    static Operator arithmetic;
+    private static Operator relational;
+    private static Operator logical;
+    private static Operator arithmetic;
 
     private static int methodCount;
 
-    CompilationUnit cu;
-    VoidVisitor<Void> nodeVisitor = new NodeVisitor();
+    private File file;
+    private VoidVisitor<Void> nodeVisitor = new NodeVisitor();
 
-    OperatorParser(File file) throws FileNotFoundException {
-        this.cu = StaticJavaParser.parse(file);
+    FileMetricParser(File file) throws FileNotFoundException {
+        this.file = file;
 
         this.binary = new BinaryOperator();
         this.unary = new UnaryOperator();
+        this.assignment = new AssignmentOperator();
 
         this.relational = new RelationalOperator();
         this.logical = new LogicalOperator();
@@ -45,18 +45,30 @@ public class OperatorParser {
         return methodCount;
     }
 
-    public void Parse() {
+    public int getOperandCount() {
+        return binary.getOperandCount() + unary.getOperandCount() + assignment.getOperandCount();
+    }
+
+    public int getUnaryOperatorCount() {
+        return unary.getCount();
+    }
+    public int getBinaryOperatorCount() {
+        return binary.getCount();
+    }
+    public int getRelationalOperatorCount() {
+        return relational.getCount();
+    }
+    public int getArithmeticOperatorCount() {
+        return arithmetic.getCount();
+    }
+    public int getLogicalOperatorCount() { return logical.getCount(); }
+
+    public void Parse() throws FileNotFoundException {
+        CompilationUnit cu = StaticJavaParser.parse(file);
         nodeVisitor.visit(cu, null);
-        System.out.println("Unary: " + unary.getCount());
-        System.out.println("Binary: " + binary.getCount());
-        System.out.println("Relational: " + relational.getCount());
-        System.out.println("Logical: " + logical.getCount());
-        System.out.println("Arithmetic: " + arithmetic.getCount());
-        System.out.println("Method Count: " + methodCount);
     }
 
     private static class NodeVisitor extends VoidVisitorAdapter<Void> {
-
         @Override
         public void visit(MethodDeclaration md, Void arg) {
             super.visit(md, arg);
@@ -66,10 +78,12 @@ public class OperatorParser {
             md.walk(node -> {
                 if (unary.SameType(node)) {
                     unary.incrementCount();
+                    unary.incrementOperandCount();
                 } else if (binary.SameType(node)) {
                     binary.incrementCount();
-                    BinaryExpr be = (BinaryExpr) node;
-                    be.getOperator();
+                    binary.incrementOperandCount();
+                } else if(assignment.SameType(node)) {
+                    assignment.incrementOperandCount();
                 }
 
                 if (relational.SameType(node)) {

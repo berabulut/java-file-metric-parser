@@ -7,4 +7,9 @@ public class UnaryOperator extends Operator{
     public boolean SameType(Node node) {
         return node instanceof UnaryExpr;
     }
+
+    @Override
+    public void incrementOperandCount() {
+        operandCount += 1;
+    }
 }
