@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component inherit-compiler-output="true" inheritJdk="true">
+	<output-test url="file://$MODULE_DIR$/out/test/file-metric-parser"/>
+	<exclude-output/>
+	<contentEntry url="file://$MODULE_DIR$"/>
+	<lib name="javaparser-core-3.24.1-SNAPSHOT.jar" scope="COMPILE">
+		<relative-module-cls project-related="jar://$PROJECT_DIR$/libs/javaparser-core-3.24.1-SNAPSHOT.jar!/"/>
+	</lib>
+	<lib name="javaparser-symbol-solver-core-3.24.1-SNAPSHOT.jar" scope="COMPILE">
+		<relative-module-cls project-related="jar://$PROJECT_DIR$/libs/javaparser-symbol-solver-core-3.24.1-SNAPSHOT.jar!/"/>
+	</lib>
+</component>
