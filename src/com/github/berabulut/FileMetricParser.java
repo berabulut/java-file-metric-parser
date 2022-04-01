@@ -28,13 +28,13 @@ public class FileMetricParser {
     FileMetricParser(File file) throws FileNotFoundException {
         this.file = file;
 
-        this.binary = new BinaryOperator();
-        this.unary = new UnaryOperator();
-        this.assignment = new AssignmentOperator();
+        binary = new BinaryOperator();
+        unary = new UnaryOperator();
+        assignment = new AssignmentOperator();
 
-        this.relational = new RelationalOperator();
-        this.logical = new LogicalOperator();
-        this.arithmetic = new ArithmeticOperator();
+        relational = new RelationalOperator();
+        logical = new LogicalOperator();
+        arithmetic = new ArithmeticOperator();
     }
 
     static private void incrementMethodCount() {

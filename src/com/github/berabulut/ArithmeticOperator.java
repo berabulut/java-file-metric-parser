@@ -26,8 +26,8 @@ public class ArithmeticOperator extends Operator{
     public boolean SameType(Node node) {
         String operator;
 
-        boolean isAssigment = node instanceof AssignExpr;
-        if (isAssigment) {
+        boolean isAssignment = node instanceof AssignExpr;
+        if (isAssignment) {
             return true;
         }
 

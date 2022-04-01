@@ -12,8 +12,4 @@ public class UnaryOperator extends Operator{
     public void incrementOperandCount() {
         operandCount += 1;
     }
-    
-    public int add(int a, int b) {
-        return a + b;
-    }
 }
