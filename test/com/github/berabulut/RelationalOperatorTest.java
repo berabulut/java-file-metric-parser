@@ -10,33 +10,26 @@ import org.junit.jupiter.params.provider.CsvSource;
 import org.junit.jupiter.params.provider.MethodSource;
 
 import com.github.javaparser.ast.Node;
+import com.github.javaparser.ast.expr.AssignExpr;
 import com.github.javaparser.ast.expr.BinaryExpr;
 import com.github.javaparser.ast.expr.UnaryExpr;
+import com.github.javaparser.ast.expr.VariableDeclarationExpr;
 
 class RelationalOperatorTest {
-
-	@Test
-	void testSameTypeBinaryExpr() {
-		RelationalOperator re = new RelationalOperator();
-		
-		var binaryExpr = new BinaryExpr();
-		var expected = true;
-		var got = re.SameType(binaryExpr);
-		
-		assertEquals(expected, got);
-
+	
+	static Stream<SameTypeSuite> sameTypeArgsProvider() {
+		return Stream.of(new SameTypeSuite(new AssignExpr(), false),
+				new SameTypeSuite(new VariableDeclarationExpr(), false),
+				new SameTypeSuite(new UnaryExpr(), false),
+				new SameTypeSuite(new BinaryExpr(), true));
 	}
 	
-	@Test
-	void testSameTypeUnaryExpr() {
-		RelationalOperator re = new RelationalOperator();
+	@ParameterizedTest
+	@MethodSource("sameTypeArgsProvider")
+	void testSameType(SameTypeSuite suite) {
+		var got = new RelationalOperator().SameType(suite.node);
 		
-		var unaryExpr = new UnaryExpr();
-		var expected = false;
-		var got = re.SameType(unaryExpr);
-		
-		assertEquals(expected, got);
-
+		assertEquals(suite.expected, got);
 	}
 	
 	

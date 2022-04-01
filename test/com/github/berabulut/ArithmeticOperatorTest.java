@@ -4,28 +4,16 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import java.util.stream.Stream;
 
-import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
 
-import com.github.javaparser.ast.Node;
 import com.github.javaparser.ast.expr.AssignExpr;
 import com.github.javaparser.ast.expr.BinaryExpr;
 import com.github.javaparser.ast.expr.UnaryExpr;
 import com.github.javaparser.ast.expr.VariableDeclarationExpr;
 
 class ArithmeticOperatorTest {
-	
-	static class SameTypeSuite {
-		Node node;
-		boolean expected;
 		
-		SameTypeSuite(Node node, boolean expected) {
-			this.node = node;
-			this.expected = expected;
-		}
-	}
-	
 	static Stream<SameTypeSuite> sameTypeArgsProvider() {
 		return Stream.of(new SameTypeSuite(new AssignExpr(), true),
 				new SameTypeSuite(new VariableDeclarationExpr(), true));

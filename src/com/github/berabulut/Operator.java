@@ -15,7 +15,7 @@ public abstract class Operator {
     }
 
     public int getOperandCount(){
-        return count;
+        return operandCount;
     }
 
     public void incrementOperandCount() {}
