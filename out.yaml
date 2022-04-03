@@ -2,61 +2,44 @@
 root(Type=CompilationUnit): 
     packageDeclaration(Type=PackageDeclaration): 
         name(Type=Name): 
-            identifier: "company"
+            identifier: "testdata"
             qualifier(Type=Name): 
-                identifier: "com"
+                identifier: "berabulut"
+                qualifier(Type=Name): 
+                    identifier: "github"
+                    qualifier(Type=Name): 
+                        identifier: "com"
     types: 
         - type(Type=ClassOrInterfaceDeclaration): 
             isInterface: "false"
             name(Type=SimpleName): 
-                identifier: "MethodNamePrinter"
+                identifier: "Test"
+            comment(Type=BlockComment): 
+                content: " Method   \t\t   count: 1\n * Operand  \t\t   count: 14\n * Binary     operator count: 6\n * Relational operator count: 6\n * Arithmetic operator count: 2\n * Total \t  operator count: 8\n "
             members: 
                 - member(Type=MethodDeclaration): 
                     body(Type=BlockStmt): 
                         statements: 
                             - statement(Type=ExpressionStmt): 
-                                expression(Type=AssignExpr): 
-                                    operator: "ASSIGN"
-                                    target(Type=NameExpr): 
-                                        name(Type=SimpleName): 
-                                            identifier: "x"
-                                    value(Type=IntegerLiteralExpr): 
-                                        value: "1"
-                            - statement(Type=ExpressionStmt): 
-                                expression(Type=AssignExpr): 
-                                    operator: "ASSIGN"
-                                    target(Type=NameExpr): 
-                                        name(Type=SimpleName): 
-                                            identifier: "x"
-                                    value(Type=BinaryExpr): 
-                                        operator: "PLUS"
-                                        left(Type=NameExpr): 
-                                            name(Type=SimpleName): 
-                                                identifier: "x"
-                                        right(Type=IntegerLiteralExpr): 
-                                            value: "1"
-                            - statement(Type=ExpressionStmt): 
                                 expression(Type=VariableDeclarationExpr): 
                                     variables: 
                                         - variable(Type=VariableDeclarator): 
-                                            initializer(Type=BinaryExpr): 
-                                                operator: "MINUS"
-                                                left(Type=IntegerLiteralExpr): 
-                                                    value: "2"
-                                                right(Type=IntegerLiteralExpr): 
-                                                    value: "1"
+                                            initializer(Type=IntegerLiteralExpr): 
+                                                value: "12"
                                             name(Type=SimpleName): 
-                                                identifier: "y"
+                                                identifier: "a"
                                             type(Type=PrimitiveType): 
                                                 type: "INT"
-                            - statement(Type=ReturnStmt): 
-                                expression(Type=NameExpr): 
-                                    name(Type=SimpleName): 
-                                        identifier: "x"
-                    type(Type=PrimitiveType): 
-                        type: "INT"
+                                        - variable(Type=VariableDeclarator): 
+                                            initializer(Type=IntegerLiteralExpr): 
+                                                value: "5"
+                                            name(Type=SimpleName): 
+                                                identifier: "b"
+                                            type(Type=PrimitiveType): 
+                                                type: "INT"
+                    type(Type=VoidType): 
                     name(Type=SimpleName): 
-                        identifier: "fbuzz"
+                        identifier: "test"
                     modifiers: 
                         - modifier(Type=Modifier): 
                             keyword: "PUBLIC"
@@ -71,9 +54,3 @@ root(Type=CompilationUnit):
                 - modifier(Type=Modifier): 
                     keyword: "PUBLIC"
 ...
-Unary: 0
-Binary: 2
-Relational: 0
-Logical: 0
-Arithmetic: 5
-Method Count: 1

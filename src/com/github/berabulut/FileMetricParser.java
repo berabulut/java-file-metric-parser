@@ -12,22 +12,19 @@ import java.io.FileNotFoundException;
 
 public class FileMetricParser {
 
-    private static Operator binary;
-    private static Operator unary;
-    private static Operator assignment;
+    private Operator binary;
+    private Operator unary;
+    private Operator assignment;
 
-    private static Operator relational;
-    private static Operator logical;
-    private static Operator arithmetic;
+    private Operator relational;
+    private Operator logical;
+    private Operator arithmetic;
 
-    private static int methodCount;
+    private int methodCount;
 
-    private File file;
     private VoidVisitor<Void> nodeVisitor = new NodeVisitor();
 
-    FileMetricParser(File file) throws FileNotFoundException {
-        this.file = file;
-
+    FileMetricParser() {
         binary = new BinaryOperator();
         unary = new UnaryOperator();
         assignment = new AssignmentOperator();
@@ -37,7 +34,7 @@ public class FileMetricParser {
         arithmetic = new ArithmeticOperator();
     }
 
-    static private void incrementMethodCount() {
+    private void incrementMethodCount() {
         methodCount += 1;
     }
 
@@ -63,12 +60,12 @@ public class FileMetricParser {
     }
     public int getLogicalOperatorCount() { return logical.getCount(); }
 
-    public void Parse() throws FileNotFoundException {
+    public void Parse(File file) throws FileNotFoundException {
         CompilationUnit cu = StaticJavaParser.parse(file);
         nodeVisitor.visit(cu, null);
     }
 
-    private static class NodeVisitor extends VoidVisitorAdapter<Void> {
+    private class NodeVisitor extends VoidVisitorAdapter<Void> {
         @Override
         public void visit(MethodDeclaration md, Void arg) {
             super.visit(md, arg);
