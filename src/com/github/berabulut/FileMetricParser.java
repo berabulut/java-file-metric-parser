@@ -2,29 +2,31 @@ package com.github.berabulut;
 
 import com.github.javaparser.StaticJavaParser;
 import com.github.javaparser.ast.CompilationUnit;
+import com.github.javaparser.ast.Node;
 import com.github.javaparser.ast.body.MethodDeclaration;
 import com.github.javaparser.ast.visitor.VoidVisitor;
 import com.github.javaparser.ast.visitor.VoidVisitorAdapter;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 
 
-public class FileMetricParser {
+public class FileMetricParser implements IFileMetricParser{
 
-    private Operator binary;
-    private Operator unary;
-    private Operator assignment;
+    private final IOperator binary;
+    private final IOperator unary;
+    private final IOperator assignment;
 
-    private Operator relational;
-    private Operator logical;
-    private Operator arithmetic;
+    private final IOperator relational;
+    private final IOperator logical;
+    private final IOperator arithmetic;
 
     private int methodCount;
 
-    private VoidVisitor<Void> nodeVisitor = new NodeVisitor();
+    private final VoidVisitor<Void> nodeVisitor;
 
-    FileMetricParser() {
+    public FileMetricParser() {
         binary = new BinaryOperator();
         unary = new UnaryOperator();
         assignment = new AssignmentOperator();
@@ -32,6 +34,8 @@ public class FileMetricParser {
         relational = new RelationalOperator();
         logical = new LogicalOperator();
         arithmetic = new ArithmeticOperator();
+
+        nodeVisitor = new NodeVisitor();
     }
 
     private void incrementMethodCount() {
@@ -60,7 +64,23 @@ public class FileMetricParser {
     }
     public int getLogicalOperatorCount() { return logical.getCount(); }
 
-    public void Parse(File file) throws FileNotFoundException {
+    public boolean isJavaFile(File file){
+        String fileName = file.toString();
+        int index = fileName.lastIndexOf('.');
+        if(index > 0) {
+            String extension = fileName.substring(index + 1);
+            if (extension.equals("java")) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public void Parse(File file) throws IOException {
+        if (!isJavaFile(file)) {
+            throw new IOException("Not a java file");
+        }
+
         CompilationUnit cu = StaticJavaParser.parse(file);
         nodeVisitor.visit(cu, null);
     }

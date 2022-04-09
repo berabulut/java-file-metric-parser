@@ -16,7 +16,7 @@ class ArithmeticOperatorTest {
 		
 	static Stream<SameTypeSuite> sameTypeArgsProvider() {
 		return Stream.of(new SameTypeSuite(new AssignExpr(), true),
-				new SameTypeSuite(new VariableDeclarationExpr(), true));
+				new SameTypeSuite(new VariableDeclarationExpr(), false));
 	}
 	
 	@ParameterizedTest

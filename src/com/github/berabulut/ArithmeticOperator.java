@@ -31,11 +31,6 @@ public class ArithmeticOperator extends Operator{
             return true;
         }
 
-        boolean isVariableDeclaration = node instanceof VariableDeclarationExpr;
-        if (isVariableDeclaration) {
-            return true;
-        }
-
         boolean isBinary = node instanceof BinaryExpr;
         if (isBinary) {
             BinaryExpr be = (BinaryExpr) node;
